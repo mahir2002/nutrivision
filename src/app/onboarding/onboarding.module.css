@@ -1,0 +1,210 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+}
+
+.content {
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Progress */
+.progressContainer {
+    margin-bottom: var(--space-8);
+    text-align: center;
+}
+
+.progressBar {
+    height: 6px;
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    margin-bottom: var(--space-2);
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    border-radius: var(--radius-full);
+    transition: width 0.4s ease;
+}
+
+.progressText {
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
+}
+
+/* Step Content */
+.stepContent {
+    min-height: 400px;
+}
+
+.step {
+    animation: fadeIn 0.4s ease;
+}
+
+.stepTitle {
+    font-size: var(--text-3xl);
+    text-align: center;
+    margin-bottom: var(--space-2);
+    background: linear-gradient(135deg, var(--color-text-primary), var(--color-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stepSubtitle {
+    text-align: center;
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-8);
+}
+
+/* Form Grid */
+.formGrid {
+    display: grid;
+    gap: var(--space-4);
+}
+
+@media (min-width: 480px) {
+    .formGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .formGrid>*:first-child {
+        grid-column: span 2;
+    }
+}
+
+/* Option Cards */
+.optionGrid {
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 480px) {
+    .optionGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.optionCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    background: var(--color-bg-tertiary);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.optionCard:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    background: var(--color-bg-elevated);
+}
+
+.optionCardActive {
+    border-color: var(--color-primary) !important;
+    background: rgba(0, 212, 170, 0.1);
+    box-shadow: 0 0 20px var(--color-primary-glow);
+}
+
+.optionIcon {
+    font-size: 2rem;
+}
+
+.optionLabel {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-align: center;
+}
+
+.optionCardActive .optionLabel {
+    color: var(--color-text-primary);
+}
+
+/* Days Grid */
+.daysGrid {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-2);
+}
+
+.dayButton {
+    flex: 1;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-bg-tertiary);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.dayButton:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dayButtonActive {
+    border-color: var(--color-primary);
+    background: rgba(0, 212, 170, 0.1);
+    color: var(--color-primary);
+}
+
+/* Dietary Grid */
+.dietaryGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.dietaryChip {
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.dietaryChip:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.dietaryChipActive {
+    border-color: var(--color-primary);
+    background: rgba(0, 212, 170, 0.15);
+    color: var(--color-primary);
+}
+
+/* Navigation Buttons */
+.navButtons {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

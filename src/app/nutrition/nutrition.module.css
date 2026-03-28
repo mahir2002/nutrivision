@@ -1,0 +1,357 @@
+.loading {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    color: var(--color-text-tertiary);
+}
+
+/* Header */
+.header {
+    padding: var(--space-6) 0;
+}
+
+.title {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-2);
+}
+
+.subtitle {
+    color: var(--color-text-tertiary);
+}
+
+/* Section */
+.section {
+    margin-bottom: var(--space-8);
+}
+
+.sectionTitle {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    margin-bottom: var(--space-4);
+}
+
+.sectionSubtitle {
+    color: var(--color-text-tertiary);
+    font-size: var(--text-sm);
+    margin-top: calc(-1 * var(--space-2));
+    margin-bottom: var(--space-4);
+}
+
+/* Target Card */
+.targetCard {
+    text-align: center;
+    padding: var(--space-6);
+}
+
+.targetCard:hover {
+    transform: none;
+}
+
+.calorieDisplay {
+    margin-bottom: var(--space-6);
+}
+
+.calorieNumber {
+    display: block;
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    font-family: var(--font-display);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.calorieLabel {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
+    margin-top: var(--space-2);
+}
+
+.calculation {
+    text-align: left;
+    padding: var(--space-4);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-lg);
+}
+
+.calcRow {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-2) 0;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.calcRow:last-child {
+    border-bottom: none;
+}
+
+.calcRowHighlight {
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.deficit {
+    color: var(--color-error);
+}
+
+.surplus {
+    color: var(--color-success);
+}
+
+/* Macro Cards */
+.macroCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.macroCard {
+    padding: var(--space-4);
+    text-align: center;
+    border-left: 3px solid var(--macro-color);
+}
+
+.macroCard:hover {
+    transform: none;
+}
+
+.macroIcon {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-2);
+}
+
+.macroInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.macroValue {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    font-family: var(--font-display);
+    color: var(--color-text-primary);
+}
+
+.macroName {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+}
+
+.macroPercent {
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+    margin-top: var(--space-1);
+}
+
+.macroDetail {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    margin-top: var(--space-2);
+    padding-top: var(--space-2);
+    border-top: 1px solid var(--color-border);
+}
+
+/* Macro Bar */
+.macroBar {
+    display: flex;
+    height: 12px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    background: var(--color-bg-tertiary);
+}
+
+.macroBarSegment {
+    height: 100%;
+    transition: width 0.5s ease;
+}
+
+/* Meal List */
+.mealList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.mealCard {
+    padding: var(--space-5);
+}
+
+.mealCard:hover {
+    transform: none;
+}
+
+.mealHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-3);
+}
+
+.mealTime {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
+}
+
+.mealTimeIcon {
+    font-size: 1rem;
+}
+
+.mealCalories {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.mealName {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-3);
+}
+
+.mealFoods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.foodTag {
+    padding: var(--space-1) var(--space-3);
+    background: var(--color-bg-elevated);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+}
+
+.mealMacros {
+    display: flex;
+    gap: var(--space-4);
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
+}
+
+/* Tips Card */
+.tipsCard {
+    padding: var(--space-5);
+}
+
+.tipsCard:hover {
+    transform: none;
+}
+
+.tipsTitle {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-4);
+}
+
+.tipsList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.tipsList li {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    padding-left: var(--space-4);
+    position: relative;
+}
+
+.tipsList li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-success);
+}
+
+/* Dietary Note */
+.dietaryNote {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .header {
+        padding: var(--space-4) 0;
+    }
+
+    .title {
+        font-size: var(--text-xl);
+    }
+
+    .macroCards {
+        grid-template-columns: 1fr;
+    }
+
+    .macroCard {
+        flex-direction: row;
+        text-align: left;
+        display: flex;
+        align-items: center;
+        gap: var(--space-4);
+    }
+
+    .macroIcon {
+        margin-bottom: 0;
+    }
+
+    .macroInfo {
+        flex: 1;
+    }
+
+    .macroDetail {
+        border-top: none;
+        border-left: 1px solid var(--color-border);
+        padding-top: 0;
+        padding-left: var(--space-3);
+        margin-top: 0;
+    }
+
+    .mealHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+
+    .mealFoods {
+        justify-content: flex-start;
+    }
+
+    .dayHeader {
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+}
+
+@media (min-width: 768px) {
+    .macroCards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .mealList {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+    }
+}

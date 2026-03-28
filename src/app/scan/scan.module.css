@@ -1,0 +1,478 @@
+.loading {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    color: var(--color-text-tertiary);
+}
+
+/* Header */
+.header {
+    padding: var(--space-6) 0;
+    text-align: center;
+}
+
+.title {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-2);
+}
+
+.subtitle {
+    color: var(--color-text-tertiary);
+}
+
+/* Mode Selector */
+.modeSelector {
+    display: flex;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+}
+
+.modeButton {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    background: var(--color-bg-tertiary);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    color: var(--color-text-secondary);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.modeButton:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.modeButtonActive {
+    border-color: var(--color-primary);
+    background: rgba(0, 212, 170, 0.1);
+    color: var(--color-primary);
+}
+
+.modeIcon {
+    font-size: 2rem;
+}
+
+/* Upload Area */
+.uploadArea {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-10);
+    background: var(--color-bg-tertiary);
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius-xl);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    margin-bottom: var(--space-6);
+}
+
+.uploadArea:hover {
+    border-color: var(--color-primary);
+    background: rgba(0, 212, 170, 0.05);
+}
+
+.fileInput {
+    display: none;
+}
+
+.uploadIcon {
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+}
+
+.uploadText {
+    font-size: var(--text-lg);
+    font-weight: 500;
+    margin-bottom: var(--space-2);
+}
+
+.uploadHint {
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
+}
+
+/* Image Preview */
+.imagePreview {
+    position: relative;
+    margin-bottom: var(--space-6);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+}
+
+.imagePreview img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.removeImage {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    width: 36px;
+    height: 36px;
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius: var(--radius-full);
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Analyze Button */
+.analyzeButton {
+    width: 100%;
+    margin-bottom: var(--space-6);
+}
+
+/* Result */
+.result {
+    animation: fadeIn 0.4s ease;
+}
+
+.resultHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-6);
+}
+
+.resultHeader h2 {
+    font-size: var(--text-xl);
+}
+
+/* Detected Foods */
+.detectedFoods {
+    margin-bottom: var(--space-4);
+}
+
+.detectedFoods:hover {
+    transform: none;
+}
+
+.detectedFoods h3 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-4);
+}
+
+.detectedFood {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.detectedFood:last-child {
+    border-bottom: none;
+}
+
+.foodDetails {
+    display: flex;
+    flex-direction: column;
+}
+
+.foodName {
+    font-weight: 500;
+}
+
+.foodPortion {
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
+}
+
+.foodCalories {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* Calorie Estimate */
+.calorieEstimate {
+    text-align: center;
+    margin-bottom: var(--space-4);
+}
+
+.calorieEstimate:hover {
+    transform: none;
+}
+
+.calorieEstimate h3 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-4);
+}
+
+.calorieRange {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-2);
+}
+
+.calorieMain {
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    font-family: var(--font-display);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.calorieUnit {
+    font-size: var(--text-lg);
+    color: var(--color-text-tertiary);
+}
+
+.calorieRangeText {
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-4);
+}
+
+.macroEstimate {
+    display: flex;
+    justify-content: space-around;
+    padding: var(--space-4);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-lg);
+}
+
+.macroEstimate .macroItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    font-size: var(--text-sm);
+}
+
+.macroEstimate .macroItem span:first-child {
+    color: var(--color-text-tertiary);
+}
+
+.macroEstimate .macroItem span:last-child {
+    font-weight: 600;
+}
+
+/* Uncertainties & Follow-up */
+.uncertainties,
+.followUp {
+    padding: var(--space-4);
+    background: rgba(245, 158, 11, 0.1);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-4);
+}
+
+.uncertainties h4,
+.followUp h4 {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-2);
+}
+
+.uncertainties ul,
+.followUp ul {
+    list-style: none;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+}
+
+.uncertainties li,
+.followUp li {
+    padding: var(--space-1) 0;
+}
+
+/* Product Card */
+.productCard {
+    margin-bottom: var(--space-4);
+}
+
+.productCard:hover {
+    transform: none;
+}
+
+.productCard h3 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-1);
+}
+
+.servingSize {
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-4);
+}
+
+.nutritionGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-2);
+}
+
+.nutritionItem {
+    text-align: center;
+    padding: var(--space-3);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-md);
+}
+
+.nutritionValue {
+    display: block;
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.nutritionLabel {
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+}
+
+/* Fit Analysis */
+.fitAnalysis {
+    margin-bottom: var(--space-4);
+}
+
+.fitAnalysis:hover {
+    transform: none;
+}
+
+.fitAnalysis h3 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-3);
+}
+
+.reasonsList {
+    list-style: none;
+    margin-bottom: var(--space-4);
+}
+
+.reasonsList li {
+    padding: var(--space-2) 0;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+}
+
+.portionRec {
+    padding: var(--space-3);
+    background: rgba(0, 212, 170, 0.1);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+}
+
+/* Allergens */
+.allergens {
+    margin-bottom: var(--space-4);
+}
+
+.allergens h4 {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-2);
+}
+
+.allergenTags {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+
+.allergenTag {
+    padding: var(--space-1) var(--space-3);
+    background: rgba(239, 68, 68, 0.15);
+    color: var(--color-error);
+    font-size: var(--text-xs);
+    font-weight: 500;
+    border-radius: var(--radius-full);
+}
+
+/* Ingredients */
+.ingredients {
+    margin-bottom: var(--space-6);
+}
+
+.ingredients h4 {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-2);
+}
+
+.ingredients p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* Disclaimer */
+.disclaimer {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-align: center;
+    padding: var(--space-4);
+    margin-bottom: var(--space-6);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
+    .nutritionGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modeSelector {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+
+    .modeButton {
+        flex-direction: row;
+        justify-content: center;
+        padding: var(--space-3);
+    }
+
+    .modeIcon {
+        font-size: 1.5rem;
+    }
+
+    .uploadArea {
+        padding: var(--space-8);
+    }
+
+    .uploadIcon {
+        font-size: 2.5rem;
+    }
+
+    .resultHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+
+    .macroEstimate {
+        flex-direction: column;
+        gap: var(--space-3);
+    }
+
+    .calorieMain {
+        font-size: var(--text-3xl);
+    }
+}

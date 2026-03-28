@@ -1,0 +1,1025 @@
+.container {
+    min-height: 100vh;
+    background: var(--background);
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
+}
+
+.header {
+    padding: 1.5rem 1.5rem 1rem;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(180deg, var(--background) 0%, var(--background) 80%, transparent 100%);
+    z-index: 10;
+}
+
+.headerContent {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.aiAvatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 0 20px rgba(0, 212, 170, 0.4);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(0, 212, 170, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(0, 212, 170, 0.6);
+    }
+}
+
+.headerText h1 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0;
+}
+
+.headerText p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.statusIndicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--accent);
+}
+
+.statusDot {
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Chat Messages */
+.chatArea {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: auto;
+}
+
+.message {
+    max-width: 85%;
+    animation: messageIn 0.3s ease-out;
+}
+
+@keyframes messageIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.aiMessage {
+    align-self: flex-start;
+}
+
+.userMessage {
+    align-self: flex-end;
+}
+
+.messageBubble {
+    padding: 0.875rem 1rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.aiMessage .messageBubble {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-bottom-left-radius: 0.25rem;
+}
+
+.userMessage .messageBubble {
+    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+    color: var(--background);
+    font-weight: 500;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.messageTime {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    padding: 0 0.5rem;
+}
+
+.userMessage .messageTime {
+    text-align: right;
+}
+
+/* Quick Reply Options */
+.quickReplies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+}
+
+.quickReply {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: 2rem;
+    color: var(--accent);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.quickReply:hover {
+    background: var(--accent);
+    color: var(--background);
+    transform: scale(1.02);
+}
+
+/* Typing Indicator */
+.typingIndicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    border-bottom-left-radius: 0.25rem;
+    max-width: 100px;
+    align-self: flex-start;
+}
+
+.typingDot {
+    width: 8px;
+    height: 8px;
+    background: var(--text-muted);
+    border-radius: 50%;
+    animation: typing 1.4s infinite;
+}
+
+.typingDot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typingDot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: translateY(-5px);
+        opacity: 1;
+    }
+}
+
+/* Input Area */
+.inputArea {
+    position: fixed;
+    bottom: 80px;
+    left: 0;
+    right: 0;
+    padding: 1rem 1.5rem;
+    background: linear-gradient(0deg, var(--background) 0%, var(--background) 80%, transparent 100%);
+}
+
+.inputContainer {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    padding: 0.5rem;
+    transition: border-color 0.2s ease;
+}
+
+.inputContainer:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.1);
+}
+
+.chatInput {
+    flex: 1;
+    background: transparent;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    outline: none;
+    font-family: inherit;
+}
+
+.chatInput::placeholder {
+    color: var(--text-muted);
+}
+
+.sendButton {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: var(--background);
+    font-size: 1.1rem;
+}
+
+.sendButton:hover:not(:disabled) {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 212, 170, 0.5);
+}
+
+.sendButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Workout Plan Card */
+.workoutPlanCard {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    margin-top: 0.75rem;
+    max-width: 100%;
+}
+
+.planHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.planTitle {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.planDays {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: var(--surface);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.exerciseList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.exerciseItem {
+    background: var(--surface);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.exerciseItem:hover {
+    border-color: var(--accent);
+    background: rgba(0, 212, 170, 0.05);
+}
+
+.exerciseItemHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.exerciseNumber {
+    width: 24px;
+    height: 24px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--background);
+    margin-right: 0.75rem;
+}
+
+.exerciseName {
+    flex: 1;
+    font-weight: 500;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+.exerciseDetails {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    padding-left: 2.25rem;
+}
+
+.exerciseDetail {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.exerciseDetail span {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.viewAnimationBtn {
+    font-size: 0.7rem;
+    color: var(--accent);
+    background: rgba(0, 212, 170, 0.1);
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.viewAnimationBtn:hover {
+    background: var(--accent);
+    color: var(--background);
+}
+
+/* Animation Modal */
+.animationModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.animationContent {
+    background: var(--card-bg);
+    border-radius: 1.5rem;
+    width: 100%;
+    max-width: 400px;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.modalTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.closeButton {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+    background: var(--accent);
+    color: var(--background);
+}
+
+.animationArea {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* Exercise Animation Container */
+.exerciseAnimation {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: rgba(0, 212, 170, 0.05);
+    border-radius: 50%;
+    border: 2px dashed rgba(0, 212, 170, 0.2);
+}
+
+/* Stick Figure Base */
+.stickFigure {
+    position: relative;
+    width: 100px;
+    height: 130px;
+}
+
+/* Head */
+.head {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border: 4px solid #00D4AA;
+    border-radius: 50%;
+    background: rgba(0, 212, 170, 0.2);
+    box-shadow: 0 0 15px rgba(0, 212, 170, 0.4);
+}
+
+/* Body/Torso */
+.body {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 50px;
+    background: #00D4AA;
+    border-radius: 3px;
+    box-shadow: 0 0 8px rgba(0, 212, 170, 0.4);
+}
+
+/* Arms - positioned from center of body */
+.leftArm,
+.rightArm {
+    position: absolute;
+    top: 38px;
+    width: 32px;
+    height: 6px;
+    background: #00D4AA;
+    border-radius: 3px;
+    box-shadow: 0 0 8px rgba(0, 212, 170, 0.4);
+}
+
+.leftArm {
+    right: 50%;
+    transform-origin: right center;
+}
+
+.rightArm {
+    left: 50%;
+    transform-origin: left center;
+}
+
+/* Legs - positioned from bottom of torso */
+.leftLeg,
+.rightLeg {
+    position: absolute;
+    top: 76px;
+    width: 40px;
+    height: 6px;
+    background: #00D4AA;
+    border-radius: 3px;
+    box-shadow: 0 0 8px rgba(0, 212, 170, 0.4);
+}
+
+.leftLeg {
+    right: 50%;
+    transform-origin: right center;
+    transform: rotate(25deg);
+}
+
+.rightLeg {
+    left: 50%;
+    transform-origin: left center;
+    transform: rotate(-25deg);
+}
+
+/* ===== DEFAULT ANIMATION (Always running) ===== */
+.animating .head {
+    animation: headBob 2s ease-in-out infinite;
+}
+
+.animating .leftArm {
+    animation: leftArmPull 2s ease-in-out infinite;
+}
+
+.animating .rightArm {
+    animation: rightArmPull 2s ease-in-out infinite;
+}
+
+.animating .leftLeg {
+    animation: leftLegMove 2s ease-in-out infinite;
+}
+
+.animating .rightLeg {
+    animation: rightLegMove 2s ease-in-out infinite;
+}
+
+.animating .body {
+    animation: bodyMove 2s ease-in-out infinite;
+}
+
+/* Default Animation Keyframes */
+@keyframes headBob {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+@keyframes leftArmPull {
+
+    0%,
+    100% {
+        transform: rotate(-30deg);
+    }
+
+    50% {
+        transform: rotate(-70deg);
+    }
+}
+
+@keyframes rightArmPull {
+
+    0%,
+    100% {
+        transform: rotate(30deg);
+    }
+
+    50% {
+        transform: rotate(70deg);
+    }
+}
+
+@keyframes leftLegMove {
+
+    0%,
+    100% {
+        transform: rotate(25deg);
+    }
+
+    50% {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes rightLegMove {
+
+    0%,
+    100% {
+        transform: rotate(-25deg);
+    }
+
+    50% {
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes bodyMove {
+
+    0%,
+    100% {
+        height: 50px;
+    }
+
+    50% {
+        height: 45px;
+    }
+}
+
+/* ===== EXERCISE-SPECIFIC ANIMATIONS ===== */
+
+/* Push-up Animation */
+.pushupAnimation .stickFigure {
+    transform: rotate(90deg);
+}
+
+.pushupAnimation .body {
+    animation: pushupBody 1.5s ease-in-out infinite !important;
+}
+
+.pushupAnimation .leftArm,
+.pushupAnimation .rightArm {
+    animation: pushupArms 1.5s ease-in-out infinite !important;
+}
+
+@keyframes pushupBody {
+
+    0%,
+    100% {
+        height: 50px;
+    }
+
+    50% {
+        height: 40px;
+    }
+}
+
+@keyframes pushupArms {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-45deg);
+    }
+}
+
+/* Squat Animation */
+.squatAnimation .body {
+    animation: squatBody 1.8s ease-in-out infinite !important;
+}
+
+.squatAnimation .leftLeg {
+    animation: squatLeftLeg 1.8s ease-in-out infinite !important;
+}
+
+.squatAnimation .rightLeg {
+    animation: squatRightLeg 1.8s ease-in-out infinite !important;
+}
+
+.squatAnimation .head {
+    animation: squatHead 1.8s ease-in-out infinite !important;
+}
+
+@keyframes squatBody {
+
+    0%,
+    100% {
+        height: 50px;
+        top: 30px;
+    }
+
+    50% {
+        height: 30px;
+        top: 50px;
+    }
+}
+
+@keyframes squatLeftLeg {
+
+    0%,
+    100% {
+        transform: rotate(25deg);
+    }
+
+    50% {
+        transform: rotate(70deg);
+    }
+}
+
+@keyframes squatRightLeg {
+
+    0%,
+    100% {
+        transform: rotate(-25deg);
+    }
+
+    50% {
+        transform: rotate(-70deg);
+    }
+}
+
+@keyframes squatHead {
+
+    0%,
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+
+    50% {
+        transform: translateX(-50%) translateY(20px);
+    }
+}
+
+/* Curl Animation */
+.curlAnimation .leftArm {
+    animation: curlLeft 1.2s ease-in-out infinite !important;
+}
+
+.curlAnimation .rightArm {
+    animation: curlRight 1.2s ease-in-out infinite 0.6s !important;
+}
+
+@keyframes curlLeft {
+
+    0%,
+    100% {
+        transform: rotate(-20deg);
+    }
+
+    50% {
+        transform: rotate(-120deg);
+    }
+}
+
+@keyframes curlRight {
+
+    0%,
+    100% {
+        transform: rotate(20deg);
+    }
+
+    50% {
+        transform: rotate(120deg);
+    }
+}
+
+/* Pull-up Animation */
+.pullupAnimation .stickFigure {
+    animation: pullupBody 1.5s ease-in-out infinite !important;
+}
+
+.pullupAnimation .leftArm,
+.pullupAnimation .rightArm {
+    animation: pullupArms 1.5s ease-in-out infinite !important;
+}
+
+@keyframes pullupBody {
+
+    0%,
+    100% {
+        transform: translateY(30px);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pullupArms {
+
+    0%,
+    100% {
+        transform: rotate(160deg);
+    }
+
+    50% {
+        transform: rotate(90deg);
+    }
+}
+
+.animationDescription {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding: 0 1rem;
+}
+
+.stepsSection {
+    padding: 1.25rem;
+    border-top: 1px solid var(--border);
+}
+
+.stepsTitle {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.stepsList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.step {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.stepNumber {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--background);
+}
+
+/* Nutrition Plan Card */
+.nutritionPlanCard {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    margin-top: 0.75rem;
+}
+
+.macroGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.macroItem {
+    background: var(--surface);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.macroIcon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.macroValue {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.macroLabel {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.caloriesDisplay {
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(0, 150, 119, 0.1));
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.caloriesValue {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.caloriesLabel {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Progress Animation */
+.generatingCard {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 3px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.generatingText {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Apply Button */
+.applyButton {
+    width: 100%;
+    padding: 0.875rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+    border: none;
+    border-radius: 0.75rem;
+    color: var(--background);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.2s ease;
+}
+
+.applyButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 212, 170, 0.4);
+}
